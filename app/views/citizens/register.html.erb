@@ -1,0 +1,8 @@
+<p>Please register by submitting the form below</p>
+
+<%= simple_form_for(@citizen) do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>

@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get 'signin', to: 'citizens#signin'
   post 'signin', to: 'citizens#authenticate'
 
-  resources :citizens, :only [:create, :edit, :update] do
-    resources :appointments, :only [:create, :new]
+  resources :citizens, only: [ :create, :edit, :update ] do
+    resources :appointments, only: [ :create, :new ]
   end
-  resources :clinics, :except [:destroy, :index]
+  resources :clinics, except: [ :destroy, :index ]
 end

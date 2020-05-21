@@ -1,21 +1,20 @@
 class CitizensController < ApplicationController
 
   def register
+    @citizen = Citizen.new
   end
 
   def signin
+    @citizen = Citizen.new
   end
 
   def authenticate
-  end
+    searched_user = Citizen.find_by_email(params[:citizen][:email])
 
-  def new
-  end
+    if params[:citizen][:password] == searched_user.password
 
-  def create
-  end
-
-  def udate
+      redirect_to new_citizen_appointment_path(searched_user)
+    end
   end
 
   def edit
